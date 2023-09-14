@@ -15,7 +15,7 @@ const WeatherApp = () => {
     const [wicon, setWicon] = useState(cloud_icon)
 
     const search = async () => {
-        const element = document.getElementsByClassName('city')
+        const element = document.getElementsByClassName('cityInput')
         if (element[0].value === '') {
             return 0
         }
@@ -59,7 +59,7 @@ const WeatherApp = () => {
     return (
         <div className='container'>
             <div className='top-bar'>
-                <input type="text" className="city" placeholder='search' />
+                <input type="text" className="cityInput" placeholder='search' />
                 <div className="search_icon" onClick={() => {
                     search()
                 }}>

@@ -13,7 +13,6 @@ import humidity_icon from '../../Assets/humidity.png'
 const WeatherApp = () => {
     let api_key = '528969fe0325ea5e1403d7b5efee4012'
     const [wicon, setWicon] = useState(cloud_icon)
-
     const search = async () => {
         const element = document.getElementsByClassName('cityInput')
         if (element[0].value === '') {
@@ -26,12 +25,10 @@ const WeatherApp = () => {
         const wind = document.getElementsByClassName("wind-rate")
         const temprature = document.getElementsByClassName("weather-temp")
         const location = document.getElementsByClassName("weather-location")
-
         humidity[0].innerHTML = data.main.humidity + ' %'
         wind[0].innerHTML = Math.floor(data.wind.speed) + ' km/h'
         temprature[0].innerHTML = Math.floor(data.main.temp) + '°C '
         location[0].innerHTML = data.name
-
         if (data.weather[0].icon === '01d' || data.weather[0].icon === '01n') {
             setWicon(clear_icon)
         }

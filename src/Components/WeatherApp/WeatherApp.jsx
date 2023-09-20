@@ -13,7 +13,6 @@ const WeatherApp = () => {
     let api_key = '528969fe0325ea5e1403d7b5efee4012';
     const [wicon, setWicon] = useState(cloud_icon);
     const [error, setError] = useState('');
-
     const search = async () => {
         const element = document.getElementsByClassName('cityInput');
         const location = element[0].value;
@@ -31,16 +30,12 @@ const WeatherApp = () => {
             setError(<div className="error-message" style={{ color: 'white', paddingTop: '60px', fontWeight: 'bold' }}>Location not found or unavailable.</div>);
             return;
         }
-
-
         setError('');
-
         let data = await response.json();
         const humidity = document.getElementsByClassName('humidity-percent');
         const wind = document.getElementsByClassName('wind-rate');
         const temperature = document.getElementsByClassName('weather-temp');
         const locationElement = document.getElementsByClassName('weather-location');
-
         humidity[0].innerHTML = data.main.humidity + ' %';
         wind[0].innerHTML = Math.floor(data.wind.speed) + ' km/h';
         temperature[0].innerHTML = Math.floor(data.main.temp) + '°C ';
